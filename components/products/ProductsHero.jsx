@@ -8,13 +8,13 @@ const ProductsHero = () => {
   return (
     <div className={styles.productsHeroContainer}>
       <div className={styles.infoContainer}>
-        <FadeInWhenVisible direction="top" effect="bounce" >
+        <FadeInWhenVisible direction="left" effect="bounce" >
           <h1 style={{ textAlign: 'center' }}>Hemapickles Products</h1>
         </FadeInWhenVisible>
-        <FadeInWhenVisible direction="top" delay={0.25} effect="spring">
+        <FadeInWhenVisible direction="left" delay={0.25} effect="spring">
           <h2 className='textGradient'>Authentic Taste, Homemade Goodness, Delivered to You. </h2>
         </FadeInWhenVisible>
-        <FadeInWhenVisible direction="top" delay={0.5} effect="spring">
+        <FadeInWhenVisible direction="left" delay={0.5} effect="spring">
           <p>At Hemapickles, every jar is more than just food — it's a story of tradition, love, and flavors passed down through generations. All our pickles and powders are handmade in small batches, using 100% natural ingredients with no preservatives, no colors, and no chemicals.</p>
         </FadeInWhenVisible>
       </div>

@@ -34,7 +34,7 @@ export const vegProducts = [
 ];
 
 export const powderProducts = [
-  { name: 'Coconut with red chilli powder)', image: redChilli ,price : '300rs - 500G' },
+  { name: 'Coconut with red chilli powder', image: redChilli ,price : '300rs - 500G' },
   { name: 'Almond Cashew nut powder', image: cashew ,price : '300rs - 500G' },
 ]
 //fav

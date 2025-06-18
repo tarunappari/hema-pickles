@@ -40,13 +40,15 @@ const HeroSection = () => {
                     </div>
                 </FadeInWhenVisible>
             </div>
-            <div className={styles.imgContainer}>
-                <div className={`${styles.brushContainer}`}>
-                    <div className={styles.imageWrapper}>
-                        <Image src={family} alt="granny" fill objectPosition='top' style={{ objectFit: 'contain' }} />
+            <FadeInWhenVisible direction="top" delay={1} effect='bounce'>
+                <div className={styles.imgContainer}>
+                    <div className={`${styles.brushContainer}`}>
+                        <div className={styles.imageWrapper}>
+                            <Image src={family} alt="granny" fill objectPosition='top' style={{ objectFit: 'contain' }} />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </FadeInWhenVisible>
 
         </div >
     )

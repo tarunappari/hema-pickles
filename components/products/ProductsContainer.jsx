@@ -6,6 +6,7 @@ import Image from 'next/image';
 import spiral from '@/public/assets/decors/spiral.png'
 import plus2 from '@/public/assets/decors/plus.png'
 import plus from '@/public/assets/decors/plusDown.png'
+import FadeInWhenVisible from '../animations/FadeInWhenVisible';
 
 const ProductsContainer = () => {
   return (
@@ -17,22 +18,24 @@ const ProductsContainer = () => {
         </div>
         <div className={styles.productCards}>
           {nonVegProducts.map((item, index) => (
-            <div
-              key={index}
-              className={`${styles.card} ${(index === 0) ? styles.card1 : ''
-                }`}
-            >
-              <div className={styles.cardImgContainer}>
-                <Image src={item.image} alt={item.name} />
-              </div>
-              <h4>{item.name}</h4>
-              <p>{item.price}</p>
-              {(index === 0) && (
-                <div className={styles.decorSpiral}>
-                  <Image src={spiral} alt='spiral' />
+            <FadeInWhenVisible key={index} direction='bottom' delay={index * 0.25} effect='spring'>
+              <div
+
+                className={`${styles.card} ${(index === 0) ? styles.card1 : ''
+                  }`}
+              >
+                <div className={styles.cardImgContainer}>
+                  <Image src={item.image} alt={item.name} />
                 </div>
-              )}
-            </div>
+                <h4>{item.name}</h4>
+                <p>{item.price}</p>
+                {(index === 0) && (
+                  <div className={styles.decorSpiral}>
+                    <Image src={spiral} alt='spiral' />
+                  </div>
+                )}
+              </div>
+            </FadeInWhenVisible>
           ))}
         </div>
 
@@ -54,22 +57,24 @@ const ProductsContainer = () => {
         </div>
         <div className={styles.productCards}>
           {vegProducts.map((item, index) => (
-            <div
-              key={index}
-              className={`${styles.card} ${(index === 0) ? styles.card1 : ''
-                }`}
-            >
-              <div className={styles.cardImgContainer}>
-                <Image src={item.image} alt={item.name} />
-              </div>
-              <h4>{item.name}</h4>
-              <p>{item.price}</p>
-              {(index === 0) && (
-                <div className={styles.decorSpiral}>
-                  <Image src={spiral} alt='spiral' />
+            <FadeInWhenVisible key={index} direction='bottom' delay={index * 0.25} effect='spring'>
+              <div
+
+                className={`${styles.card} ${(index === 0) ? styles.card1 : ''
+                  }`}
+              >
+                <div className={styles.cardImgContainer}>
+                  <Image src={item.image} alt={item.name} />
                 </div>
-              )}
-            </div>
+                <h4>{item.name}</h4>
+                <p>{item.price}</p>
+                {(index === 0) && (
+                  <div className={styles.decorSpiral}>
+                    <Image src={spiral} alt='spiral' />
+                  </div>
+                )}
+              </div>
+            </FadeInWhenVisible>
           ))}
         </div>
 
@@ -90,22 +95,24 @@ const ProductsContainer = () => {
         </div>
         <div className={styles.productCards}>
           {powderProducts.map((item, index) => (
-            <div
-              key={index}
-              className={`${styles.card} ${(index === 0) ? styles.card1 : ''
-                }`}
-            >
-              <div className={styles.cardImgContainer}>
-                <Image src={item.image} alt={item.name} />
-              </div>
-              <h4>{item.name}</h4>
-              <p>{item.price}</p>
-              {(index === 0) && (
-                <div className={styles.decorSpiral}>
-                  <Image src={spiral} alt='spiral' />
+            <FadeInWhenVisible key={index} direction='bottom' delay={index * 0.25} effect='spring'>
+              <div
+
+                className={`${styles.card} ${(index === 0) ? styles.card1 : ''
+                  }`}
+              >
+                <div className={styles.cardImgContainer}>
+                  <Image src={item.image} alt={item.name} />
                 </div>
-              )}
-            </div>
+                <h4>{item.name}</h4>
+                <p>{item.price}</p>
+                {(index === 0) && (
+                  <div className={styles.decorSpiral}>
+                    <Image src={spiral} alt='spiral' />
+                  </div>
+                )}
+              </div>
+            </FadeInWhenVisible>
           ))}
         </div>
 
