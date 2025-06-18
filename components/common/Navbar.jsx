@@ -1,0 +1,29 @@
+"use client";
+import React from 'react'
+import styles from '@/styles/common/Navbar.module.scss'
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import logo from '@/public/assets/landingpage/hema-logo.png';
+import Image from 'next/image';
+
+
+const Navbar = () => {
+
+    const pathname = usePathname();
+
+    return (
+        <div className={styles.container}>
+            <div className={styles.title}>
+                <Link href='/'><Image src={logo} alt="logo" width={180} height={90} /></Link>
+            </div>
+            <div className={pathname === "/about" ? styles.whiteLinks : ""}>
+                <Link href="/products" className={pathname === "/products" ? styles.active : ""}>Products</Link>
+                <Link href="/about" className={pathname === "/about" ? styles.active : ""}>About</Link>
+                <Link href="/contact" className={pathname === "/contact" ? styles.active : ""}>Contact</Link>
+            </div>
+
+        </div>
+    )
+}
+
+export default Navbar;

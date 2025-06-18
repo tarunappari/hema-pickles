@@ -1,0 +1,91 @@
+.AboutInfoContainer {
+  max-width: 100vw;
+  overflow: hidden;
+
+  .info {
+    padding: 2rem;
+    margin: 2rem;
+
+    p {
+      font-size: 1.3rem;
+      text-align: center;
+    }
+  }
+
+  .approach {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    height: 65vh;
+    overflow: hidden;
+  }
+
+  .leafBg {
+    background: url("/assets/landingpage/mainBg.png") center/cover no-repeat
+      fixed border-box;
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+  }
+
+  .madeToLastContainer {
+    grid-template-columns: 75% 25%;
+  }
+
+  .last {
+    background: url("/assets/spiceAssests/custom.jpg") center/cover no-repeat
+      fixed border-box;
+    position: relative;
+    height: 80vh;
+  }
+
+  .aboutInfoImgContainer {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+.centeringAbout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 4rem;
+  background-color: #744f1d;
+
+  h1 {
+    font-size: 2.5rem;
+    z-index: 99;
+    color: var(--white);
+  }
+  p {
+    font-size: 1.2rem;
+    z-index: 99;
+    color: var(--parawhite);
+  }
+}
+
+@media (max-width: 1600px) {
+  .AboutInfoContainer {
+    .info {
+      padding: 2rem;
+      margin: 2rem;
+
+      p {
+        font-size: 1.1rem;
+        text-align: center;
+      }
+    }
+  }
+
+  .centeringAbout {
+
+  h1 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
+}

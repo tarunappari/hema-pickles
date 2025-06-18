@@ -1,0 +1,83 @@
+.carouselContainer {
+  width: 90%;
+
+  .carousel {
+    .favCard {
+      margin: 2rem;
+      overflow: hidden;
+
+      .imgContainer {
+        width: 100%;
+        height: 23rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .favInfo {
+        & > div {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+
+        .color {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+.testimonalContainer {
+  padding: 2rem;
+  margin: 2rem;
+
+  .testimonalCarousel {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .testimonalCard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .cardInfo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+
+      & > div {
+        & > div {
+          display: flex;
+          padding-bottom: 1rem;
+        }
+      }
+
+      span {
+        font-size: 0.9rem;
+      }
+
+      .customerTestimonal {
+        p {
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    .imgContainer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 20rem;
+      }
+    }
+  }
+}

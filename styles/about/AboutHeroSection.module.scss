@@ -1,0 +1,38 @@
+.AboutContainer {
+  min-height: 100vh;
+  background: url("/assets/landingpage/bg3.png") center/cover no-repeat fixed
+    border-box;
+  overflow: hidden;
+  position: relative;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    height: 95vh;
+    justify-content: flex-end;
+    gap: 0.3rem;
+    z-index: 9;
+    padding: 2rem;
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 0.1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    h2 {
+      justify-self: flex-start;
+      text-align: right;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+  }
+}
+
+.AboutContainer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
