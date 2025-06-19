@@ -112,7 +112,7 @@
 
 @media (max-width: 680px) {
   .productsHeroContainer {
-    margin-top: 1rem;
+    margin-top: 2rem;
     .infoContainer {
       padding: 1rem;
       & > div {
@@ -140,6 +140,12 @@
   .brushContainer {
     mask-size: 40rem 85%;
     -webkit-mask-size: 40rem 85%;
+  }
+}
+
+@media (max-width: 470px){
+  .productsHeroContainer{
+    margin-top: 5rem;
   }
 }
 

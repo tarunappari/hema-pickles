@@ -25,7 +25,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className={styles.footerLinksContainer}>
+            <div className={`${styles.footerLinksContainer} ${styles.desktopInfo}`}>
                 <div>
                     <h2>Company</h2>
                 </div>
@@ -35,7 +35,7 @@ const Footer = () => {
                     <Link href=''>Contact</Link>
                 </div>
             </div>
-            <div className={styles.footerLinksContainer}>
+            <div className={`${styles.footerLinksContainer} ${styles.desktopInfo}`}>
                 <div>
                     <h2>Connect</h2>
                 </div>
@@ -46,10 +46,29 @@ const Footer = () => {
                     <Link href="">WhatsApp</Link>
                 </div>
             </div>
-            {/* <div className={styles.footerInput}>
-                <input type="text" placeholder='Email Address' />
-                <button><RightArrow width={30} /></button>
-            </div> */}
+            <div className={styles.mobileInfo}>
+                <div className={styles.footerLinksContainer}>
+                    <div>
+                        <h2>Company</h2>
+                    </div>
+                    <div>
+                        <Link href=''>Products</Link>
+                        <Link href="">About</Link>
+                        <Link href=''>Contact</Link>
+                    </div>
+                </div>
+                <div className={styles.footerLinksContainer}>
+                    <div>
+                        <h2>Connect</h2>
+                    </div>
+                    <div>
+                        <Link href="">Facebook</Link>
+                        <Link href="">Instagram</Link>
+                        <Link href="">Twitter</Link>
+                        <Link href="">WhatsApp</Link>
+                    </div>
+                </div>
+            </div>
         </div >
     )
 }

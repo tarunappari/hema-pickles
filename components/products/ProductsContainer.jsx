@@ -17,7 +17,7 @@ const ProductsContainer = () => {
 
   return (
     <div className={styles.productsContainer}>
-      <div className={styles.productslistContainer}>
+      <div className={styles.productslistContainer} id='non'>
         <div className={styles.productTitle}>
           <h3>Hema Non-Veg Pickles</h3>
           <p>Bold Flavors. True Tradition. Every Bite Tells a Story.</p>

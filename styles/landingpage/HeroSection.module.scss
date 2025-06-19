@@ -226,6 +226,7 @@
 
         h1 {
           font-size: 1.5rem;
+          margin-bottom: -1rem;
         }
       }
     }
@@ -251,7 +252,6 @@
 
         h1 {
           font-size: 1.25rem;
-          margin-bottom: -1rem;
         }
       }
     }
@@ -261,6 +261,12 @@
     height: 300px;
     mask-size: 40rem 15rem;
     -webkit-mask-size: 40rem 15rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .containerHero{
+    margin-top: 2rem;
   }
 }
 
