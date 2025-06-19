@@ -222,6 +222,7 @@
         h3 {
           display: block;
           font-size: 2rem;
+          text-align: center;
         }
 
         h1 {
@@ -265,7 +266,7 @@
 }
 
 @media (max-width: 450px) {
-  .containerHero{
+  .containerHero {
     margin-top: 2rem;
   }
 }
@@ -277,3 +278,4 @@
     -webkit-mask-size: 28rem 13rem;
   }
 }
+
