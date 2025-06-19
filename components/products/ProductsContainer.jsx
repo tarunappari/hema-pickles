@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '@/styles/products/ProductsContainer.module.scss'
-import { nonVegProducts, vegProducts, powderProducts } from '@/data/data';
+import { nonVegProducts, vegProducts, powderProducts, testingArray } from '@/data/data';
 import divider from '@/public/assets/decors/divider.png'
 import Image from 'next/image';
 import spiral from '@/public/assets/decors/spiral.png'
@@ -105,6 +105,49 @@ const ProductsContainer = () => {
                   <Image src={item.image} alt={item.name} />
                 </div>
                 <h4>{item.name}</h4>
+                <p>{item.price}</p>
+                {(index === 0) && (
+                  <div className={styles.decorSpiral}>
+                    <Image src={spiral} alt='spiral' />
+                  </div>
+                )}
+              </div>
+            </FadeInWhenVisible>
+          ))}
+        </div>
+
+        <div className={styles.decor1}>
+          <Image src={plus} alt='plus' />
+        </div>
+        <div className={styles.decor2}>
+          <Image src={plus2} alt='plus' />
+        </div>
+      </div>
+      <div className={styles.divider}>
+        <Image src={divider} alt='dividerImg' />
+      </div>
+      <div className={styles.productslistContainer}>
+        <div className={styles.productTitle}>
+          <h3>Testing with Description</h3>
+          <p>Podi with hot rice, taste straight from mom’s hands.</p>
+        </div>
+        <div className={styles.productCards}>
+          {testingArray.map((item, index) => (
+            <FadeInWhenVisible key={index} direction='bottom' delay={index * 0.25} effect='spring'>
+              <div
+
+                className={`${styles.card} ${(index === 0) ? styles.card1 : ''
+                  }`}
+              >
+                <div className={styles.cardImgContainer}>
+                  <Image src={item.image} alt={item.name} />
+                </div>
+                <h4>{item.name}</h4>
+                <p>{item.tagline}</p>
+                <p>{item.description}</p>
+                <p>Ingredients: {item.ingredients}</p>
+                <p>{item.caption}</p>
+                <p>Enjoy it with :{item.suggestion}</p>
                 <p>{item.price}</p>
                 {(index === 0) && (
                   <div className={styles.decorSpiral}>

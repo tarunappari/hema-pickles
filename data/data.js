@@ -18,24 +18,78 @@ import chemicals from '@/public/assets/lottie/chemicals.json';
 
 // Non-Veg Pickles
 export const nonVegProducts = [
-  { name: 'Chicken Pickle', image: chicken,price : '600rs - 500G' },
-  { name: 'Mutton Pickle', image: mutton,price : '1250rs - 500G' },
-  { name: 'Fish Pickle', image: fish,price : '850rs - 500G' },
-  { name: 'Prawns Pickle', image: prawns,price : '750rs - 500G' },
-  { name: 'Prawns with Gongura', image: prawnsGongura,price : '600rs - 500G' }
+  { name: 'Chicken Pickle', image: chicken, price: '600rs - 500G' },
+  { name: 'Mutton Pickle', image: mutton, price: '1250rs - 500G' },
+  { name: 'Fish Pickle', image: fish, price: '850rs - 500G' },
+  { name: 'Prawns Pickle', image: prawns, price: '750rs - 500G' },
+  { name: 'Prawns with Gongura', image: prawnsGongura, price: '600rs - 500G' }
 ];
+
+export const testingArray = [
+  {
+    name: 'Chicken Pickle',
+    tagline: 'A spicy and tangy delight straight from the heart of Andhra kitchens!',
+    description: 'Lovingly prepared using fresh, ripe tomatoes and traditional hand-ground spices, Hemas Tomato Pickle is slow-cooked in pure groundnut oil to bring out rich, bold flavors in every spoonful.',
+    ingredients: 'Ripe tomatoes,Garlic & ginger paste,Tamarind pulp,Mustard & fenugreek seeds,Red chilli powder,Turmeric & salt,Groundnut oil',
+    caption: '✨ No Preservatives | ❌ No Artificial Colors | ✅ 100% Homemade',
+    suggestion: 'Hot steamed rice and ghee 🍚,Idli, dosa, or chapati 🫓,Curd rice or pongal',
+    image: chicken,
+    price: '600rs - 500G'
+  },
+  {
+    name: 'Chicken Pickle',
+    tagline: 'A spicy and tangy delight straight from the heart of Andhra kitchens!',
+    description: 'Lovingly prepared using fresh, ripe tomatoes and traditional hand-ground spices, Hemas Tomato Pickle is slow-cooked in pure groundnut oil to bring out rich, bold flavors in every spoonful.',
+    ingredients: 'Ripe tomatoes,Garlic & ginger paste,Tamarind pulp,Mustard & fenugreek seeds,Red chilli powder,Turmeric & salt,Groundnut oil',
+    caption: '✨ No Preservatives | ❌ No Artificial Colors | ✅ 100% Homemade',
+    suggestion: 'Hot steamed rice and ghee 🍚,Idli, dosa, or chapati 🫓,Curd rice or pongal',
+    image: chicken,
+    price: '600rs - 500G'
+  },
+  {
+    name: 'Chicken Pickle',
+    tagline: 'A spicy and tangy delight straight from the heart of Andhra kitchens!',
+    description: 'Lovingly prepared using fresh, ripe tomatoes and traditional hand-ground spices, Hemas Tomato Pickle is slow-cooked in pure groundnut oil to bring out rich, bold flavors in every spoonful.',
+    ingredients: 'Ripe tomatoes,Garlic & ginger paste,Tamarind pulp,Mustard & fenugreek seeds,Red chilli powder,Turmeric & salt,Groundnut oil',
+    caption: '✨ No Preservatives | ❌ No Artificial Colors | ✅ 100% Homemade',
+    suggestion: 'Hot steamed rice and ghee 🍚,Idli, dosa, or chapati 🫓,Curd rice or pongal',
+    image: chicken,
+    price: '600rs - 500G'
+  },
+  {
+    name: 'Chicken Pickle',
+    tagline: 'A spicy and tangy delight straight from the heart of Andhra kitchens!',
+    description: 'Lovingly prepared using fresh, ripe tomatoes and traditional hand-ground spices, Hemas Tomato Pickle is slow-cooked in pure groundnut oil to bring out rich, bold flavors in every spoonful.',
+    ingredients: 'Ripe tomatoes,Garlic & ginger paste,Tamarind pulp,Mustard & fenugreek seeds,Red chilli powder,Turmeric & salt,Groundnut oil',
+    caption: '✨ No Preservatives | ❌ No Artificial Colors | ✅ 100% Homemade',
+    suggestion: 'Hot steamed rice and ghee 🍚,Idli, dosa, or chapati 🫓,Curd rice or pongal',
+    image: chicken,
+    price: '600rs - 500G'
+  },
+  {
+    name: 'Chicken Pickle',
+    tagline: 'A spicy and tangy delight straight from the heart of Andhra kitchens!',
+    description: 'Lovingly prepared using fresh, ripe tomatoes and traditional hand-ground spices, Hemas Tomato Pickle is slow-cooked in pure groundnut oil to bring out rich, bold flavors in every spoonful.',
+    ingredients: 'Ripe tomatoes,Garlic & ginger paste,Tamarind pulp,Mustard & fenugreek seeds,Red chilli powder,Turmeric & salt,Groundnut oil',
+    caption: '✨ No Preservatives | ❌ No Artificial Colors | ✅ 100% Homemade',
+    suggestion: 'Hot steamed rice and ghee 🍚,Idli, dosa, or chapati 🫓,Curd rice or pongal',
+    image: chicken,
+    price: '600rs - 500G'
+  },
+];
+
 
 // Veg Pickles & Powders
 export const vegProducts = [
-  { name: 'Avakai (Mango Pickle)', image: avakai,price : '300rs - 500G' },
-  { name: 'Gongura Pickle', image: gongura,price : '300rs - 500G' },
-  { name: 'Tomato Pickle', image: tomato,price : '300rs - 500G' },
+  { name: 'Avakai (Mango Pickle)', image: avakai, price: '300rs - 500G' },
+  { name: 'Gongura Pickle', image: gongura, price: '300rs - 500G' },
+  { name: 'Tomato Pickle', image: tomato, price: '300rs - 500G' },
   // Add more like Tomato Pickle, Almond-Cashew Powder, Coconut Chili Powder etc.
 ];
 
 export const powderProducts = [
-  { name: 'Coconut with red chilli powder', image: redChilli ,price : '300rs - 500G' },
-  { name: 'Almond Cashew nut powder', image: cashew ,price : '300rs - 500G' },
+  { name: 'Coconut with red chilli powder', image: redChilli, price: '300rs - 500G' },
+  { name: 'Almond Cashew nut powder', image: cashew, price: '300rs - 500G' },
 ]
 //fav
 export const favProducts = [
