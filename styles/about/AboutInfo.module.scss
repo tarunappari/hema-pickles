@@ -80,12 +80,58 @@
   }
 
   .centeringAbout {
-
-  h1 {
-    font-size: 1.5rem;
-  }
-  p {
-    font-size: 1rem;
+    h1 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 1rem;
+    }
   }
 }
+
+@media only screen and (max-width: 850px) {
+  .AboutInfoContainer {
+    .info {
+      padding: 1.5rem;
+      margin: 0rem;
+
+      p {
+        font-size: 1.1rem;
+      }
+    }
+
+    .approach {
+      grid-template-columns: 100%;
+      height: 80vh;
+      grid-template-rows: 100%;
+    }
+
+    .madeToLastContainer {
+      grid-template-columns: 100%;
+      grid-template-rows: 100%;
+    }
+
+    .aboutInfoImgContainer{
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+
+  .centeringAbout {
+    gap: 1rem;
+    padding: 1.5rem;
+
+    h1 {
+      font-size: 2rem;
+      color: var(--white);
+      text-align: center;
+    }
+    p {
+      font-size: 1.1rem;
+      color: var(--parawhite);
+      text-align: center;
+    }
+  }
 }

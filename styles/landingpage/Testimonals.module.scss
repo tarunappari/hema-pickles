@@ -81,3 +81,38 @@
     }
   }
 }
+
+@media (max-width: 770px) {
+  .testimonalContainer {
+    padding: 1rem;
+    margin: 1rem;
+
+    .testimonalCarousel {
+      width: 85%;
+    }
+
+    .testimonalCard {
+      display: grid;
+      grid-template-columns: 1fr;
+
+      .cardInfo {
+        gap: 1rem;
+        padding: 1rem;
+
+        span {
+          font-size: 1rem;
+        }
+
+        .customerTestimonal {
+          p {
+            font-size: 1.1rem;
+          }
+        }
+      }
+
+      .imgContainer {
+        display: none;
+      }
+    }
+  }
+}

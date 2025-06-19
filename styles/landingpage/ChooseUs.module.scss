@@ -85,7 +85,6 @@
 
 @media (max-width: 1600px) {
   .chooseContainer {
-    
     padding: 2rem;
 
     .chooseTitle {
@@ -112,7 +111,6 @@
     }
 
     .card {
-      
       padding: 1rem;
       .icon {
         width: 4rem;
@@ -126,6 +124,57 @@
       p {
         font-size: 0.9rem;
       }
+    }
+  }
+}
+
+@media (max-width: 925px) {
+  .chooseContainer {
+    padding: 2rem 1rem;
+
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 1rem;
+    }
+
+    .card {
+      padding: 0.5rem;
+      .icon {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      h3 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  .chooseContainer {
+    padding: 2rem 1rem;
+
+    .chooseTitle {
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+    .grid {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 1rem;
     }
   }
 }

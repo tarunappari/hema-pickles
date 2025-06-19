@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '@/styles/products/ProductDetails.module.scss'
@@ -7,20 +7,10 @@ import { allProducts } from '@/data/data'
 import FadeInWhenVisible from '../animations/FadeInWhenVisible'
 
 const ProductDetails = ({ product }) => {
-  const [quantity, setQuantity] = useState(1)
-
   // Get related products from the same category
   const relatedProducts = allProducts
     .filter(item => item.category === product.category && item.id !== product.id)
     .slice(0, 3)
-
-  const handleQuantityChange = (action) => {
-    if (action === 'increase') {
-      setQuantity(prev => prev + 1)
-    } else if (action === 'decrease' && quantity > 1) {
-      setQuantity(prev => prev - 1)
-    }
-  }
 
   const ingredientsList = product.ingredients.split(',').map(ingredient => ingredient.trim())
   const suggestionsList = product.suggestion.split(',').map(suggestion => suggestion.trim())
@@ -45,9 +35,9 @@ const ProductDetails = ({ product }) => {
                 fill
                 style={{ objectFit: 'cover' }}
               />
-            </div>
-            <div className={styles.categoryBadge}>
-              <span className={styles[product.category]}>{product.category.toUpperCase()}</span>
+              <div className={styles.categoryBadge}>
+                <span className={styles[product.category]}>{product.category.toUpperCase()}</span>
+              </div>
             </div>
           </div>
         </FadeInWhenVisible>
@@ -67,20 +57,6 @@ const ProductDetails = ({ product }) => {
 
             <div className={styles.caption}>
               <p>{product.caption}</p>
-            </div>
-
-            <div className={styles.quantitySection}>
-              <label>Quantity:</label>
-              <div className={styles.quantityControls}>
-                <button
-                  onClick={() => handleQuantityChange('decrease')}
-                  disabled={quantity <= 1}
-                >
-                  -
-                </button>
-                <span>{quantity}</span>
-                <button onClick={() => handleQuantityChange('increase')}>+</button>
-              </div>
             </div>
 
             <div className={styles.actionButtons}>

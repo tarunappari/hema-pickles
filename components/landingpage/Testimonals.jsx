@@ -11,7 +11,6 @@ import {
 import granny from '@/public/assets/landingpage/granny.png'
 import Image from 'next/image'
 import StarIcon from '@/public/assets/icons/star.svg'
-import Link from 'next/link'
 
 const testimonials = [
     {

@@ -104,8 +104,55 @@
     }
   }
 
-.brushContainer {
-  mask-size: 40rem 90%;
-  -webkit-mask-size: 40rem 90%;
+  .brushContainer {
+    mask-size: 40rem 90%;
+    -webkit-mask-size: 40rem 90%;
+  }
 }
+
+@media (max-width: 680px) {
+  .productsHeroContainer {
+    margin-top: 1rem;
+    .infoContainer {
+      padding: 1rem;
+      & > div {
+        h2 {
+          font-size: 1.3rem;
+        }
+
+        h1 {
+          font-size: 1.1rem;
+          margin-bottom: 0.25rem;
+        }
+        p {
+          font-size: 0.9rem;
+          margin: 0.5rem 0;
+        }
+      }
+    }
+  }
+
+  .imgContainer {
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .brushContainer {
+    mask-size: 40rem 85%;
+    -webkit-mask-size: 40rem 85%;
+  }
+}
+
+@media (max-width: 490px) {
+  .brushContainer {
+    mask-size: 35rem 65%;
+    -webkit-mask-size: 35rem 65%;
+  }
+}
+
+@media (max-width: 440px) {
+  .brushContainer {
+    mask-size: 25rem 50%;
+    -webkit-mask-size: 25rem 50%;
+  }
 }

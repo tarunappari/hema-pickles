@@ -95,7 +95,7 @@ const Contact = () => {
           </div>
           <div className={styles.contactItem}>
             <FaMapMarkerAlt className={styles.icon} />
-            <p>Ongole</p>
+            <a href="">Ongole</a>
           </div>
         </div>
       </div>

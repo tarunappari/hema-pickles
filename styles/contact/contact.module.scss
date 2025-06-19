@@ -140,7 +140,6 @@
     }
 
     .rightContainer {
-
       .contactForm {
         width: 100%;
         max-width: 500px;
@@ -161,23 +160,91 @@
     }
 
     .contactInfoContainer {
-
-
-    & > div {
-     
-
       & > div {
+        & > div {
+          .icon {
+            font-size: 1.25rem;
+            color: #ce3f3f;
+          }
 
-        .icon {
-          font-size: 1.25rem;
-          color: #ce3f3f;
-        }
-
-        a {
-          font-size: 1.15rem;
+          a {
+            font-size: 1.15rem;
+          }
         }
       }
     }
   }
+}
+
+@media (max-width: 850px) {
+  .contactContainer {
+    min-height: 100vh;
+    padding: 2rem 0;
+    padding-top: 6rem;
+
+    .titleInfo {
+      padding: 1rem;
+      h1 {
+        font-size: 1.75rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .contactContent {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 2rem;
+    }
+
+    .contactInfoContainer {
+      padding: 1rem;
+
+      & > div {
+        gap: 2rem;
+
+        & > div {
+          .icon {
+            font-size: 1.25rem;
+          }
+
+          a {
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .contactContainer {
+    .contactContent {
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 2rem;
+    }
+
+    .contactInfoContainer {
+      padding: 1rem;
+
+      & > div {
+        gap: 0.3rem;
+        flex-direction: column;
+        margin-top: -1rem;
+
+        & > div {
+
+          .icon {
+            font-size: 1.25rem;
+          }
+
+          a {
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
   }
 }
