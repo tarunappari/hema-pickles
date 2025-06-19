@@ -44,6 +44,17 @@
       gap: 1.25rem;
       place-items: center;
 
+      .cardLink {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+      }
+
       .card1 {
         position: relative;
 
@@ -66,7 +77,30 @@
         font-weight: 800;
         padding: 0 1rem;
         text-align: center;
-        padding-bottom: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .viewProductBtn {
+        background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 0 1rem 2rem;
+        width: calc(100% - 2rem);
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 16px rgba(229, 62, 62, 0.3);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
       }
 
       .cardImgContainer {
@@ -79,6 +113,31 @@
         img {
           width: 100%;
           height: 100%;
+        }
+      }
+
+      .discountBadge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: white;
+        z-index: 2;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+        &.nonveg {
+          background: #e53e3e;
+        }
+
+        &.veg {
+          background: #38a169;
+        }
+
+        &.powder {
+          background: #d69e2e;
         }
       }
     }
@@ -121,6 +180,16 @@
           width: 15rem;
           height: 15rem;
         }
+
+        .discountBadge {
+          padding: 0.4rem 0.8rem;
+          font-size: 0.8rem;
+        }
+
+        .viewProductBtn {
+          padding: 0.6rem 1.2rem;
+          font-size: 0.8rem;
+        }
       }
     }
   }
@@ -143,6 +212,16 @@
           width: 15rem;
           height: 15rem;
         }
+
+        .discountBadge {
+          padding: 0.4rem 0.8rem;
+          font-size: 0.8rem;
+        }
+
+        .viewProductBtn {
+          padding: 0.6rem 1.2rem;
+          font-size: 0.8rem;
+        }
       }
     }
   }
@@ -156,5 +235,19 @@
     width: 100%;
     height: auto;
     aspect-ratio: 1 / 1;
+  }
+
+  .discountBadge {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .viewProductBtn {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    margin: 0 0.5rem 1.5rem;
+    width: calc(100% - 1rem);
   }
 }
