@@ -52,15 +52,17 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Remove this line as it conflicts with Lenis */
+  /* scroll-behavior: smooth; */
 }
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
-  scroll-snap-align: center;
+  /* Remove these lines as they conflict with Lenis */
+  /* scroll-behavior: smooth; */
+  /* scroll-snap-align: center; */
 }
 
 body {
