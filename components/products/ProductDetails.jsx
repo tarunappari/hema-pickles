@@ -1,19 +1,25 @@
-"use client"
-import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import styles from '@/styles/products/ProductDetails.module.scss'
-import { allProducts } from '@/data/data'
-import FadeInWhenVisible from '../animations/FadeInWhenVisible'
+"use client";
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "@/styles/products/ProductDetails.module.scss";
+import { allProducts } from "@/data/data";
+import FadeInWhenVisible from "../animations/FadeInWhenVisible";
 
 const ProductDetails = ({ product }) => {
   // Get related products from the same category
   const relatedProducts = allProducts
-    .filter(item => item.category === product.category && item.id !== product.id)
-    .slice(0, 3)
+    .filter(
+      (item) => item.category === product.category && item.id !== product.id
+    )
+    .slice(0, 3);
 
-  const ingredientsList = product.ingredients.split(',').map(ingredient => ingredient.trim())
-  const suggestionsList = product.suggestion.split(',').map(suggestion => suggestion.trim())
+  const ingredientsList = product.ingredients
+    .split(",")
+    .map((ingredient) => ingredient.trim());
+  const suggestionsList = product.suggestion
+    .split(",")
+    .map((suggestion) => suggestion.trim());
 
   return (
     <div className={styles.productDetailsContainer}>
@@ -33,10 +39,12 @@ const ProductDetails = ({ product }) => {
                 src={product.image}
                 alt={product.name}
                 fill
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: "cover" }}
               />
               <div className={styles.categoryBadge}>
-                <span className={styles[product.category]}>{product.category.toUpperCase()}</span>
+                <span className={styles[product.category]}>
+                  {product.category.toUpperCase()}
+                </span>
               </div>
             </div>
           </div>
@@ -60,7 +68,15 @@ const ProductDetails = ({ product }) => {
             </div>
 
             <div className={styles.actionButtons}>
-              <button className={styles.buyNowBtn}>
+              <button
+                className={styles.buyNowBtn}
+                onClick={() =>
+                  window.open(
+                    "https://wa.me/916303191921?text=Hi%2C%20I%20need%20more%20information%20about%20your%20pickles!",
+                    "_blank"
+                  )
+                }
+              >
                 Buy Now
               </button>
             </div>
@@ -70,7 +86,6 @@ const ProductDetails = ({ product }) => {
 
       {/* Product Details Tabs */}
       <div className={styles.productDetailsSection}>
-
         <div className={styles.detailsGrid}>
           <div className={styles.detailCard}>
             <h3>🌿 Ingredients</h3>
@@ -95,7 +110,6 @@ const ProductDetails = ({ product }) => {
       {/* Related Products */}
       {relatedProducts.length > 0 && (
         <div className={styles.relatedProductsSection}>
-
           <h2>Related Products</h2>
           <div className={styles.relatedProductsGrid}>
             {relatedProducts.map((relatedProduct, index) => (
@@ -109,7 +123,7 @@ const ProductDetails = ({ product }) => {
                     src={relatedProduct.image}
                     alt={relatedProduct.name}
                     fill
-                    style={{ objectFit: 'cover' }}
+                    style={{ objectFit: "cover" }}
                   />
                 </div>
                 <h4>{relatedProduct.name}</h4>
@@ -120,7 +134,7 @@ const ProductDetails = ({ product }) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default ProductDetails
+export default ProductDetails;

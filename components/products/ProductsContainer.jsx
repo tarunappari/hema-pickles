@@ -19,7 +19,7 @@ const ProductsContainer = () => {
     <div className={styles.productsContainer}>
       <div className={styles.productslistContainer} id='non'>
         <div className={styles.productTitle}>
-          <h3>Hema Non-Veg Pickles</h3>
+          <h3>Non-Veg Pickles</h3>
           <p>Bold Flavors. True Tradition. Every Bite Tells a Story.</p>
         </div>
         <div className={styles.productCards}>
@@ -65,7 +65,7 @@ const ProductsContainer = () => {
       </div>
       <div className={styles.productslistContainer}>
         <div className={styles.productTitle}>
-          <h3>Hema Veg Pickles</h3>
+          <h3>Veg Pickles</h3>
           <p>Pure Veg. Pure Taste. Pickled with Love.</p>
         </div>
         <div className={styles.productCards}>
@@ -110,7 +110,7 @@ const ProductsContainer = () => {
       </div>
       <div className={styles.productslistContainer}>
         <div className={styles.productTitle}>
-          <h3>Hema Powders</h3>
+          <h3>Powders</h3>
           <p>Podi with hot rice, taste straight from mom’s hands.</p>
         </div>
         <div className={styles.productCards}>

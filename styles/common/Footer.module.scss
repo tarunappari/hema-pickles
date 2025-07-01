@@ -1,12 +1,21 @@
 .footerContainer {
-  padding: 3rem 6rem;
+  padding: 3rem 4rem;
   padding-top: 5rem;
   background-color: rgba(245, 244, 244, 1);
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 15rem;
+  gap: 2rem;
   position: relative;
+
+  .footerContent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15rem;
+    width: 100%;
+  }
 
   .mobileInfo {
     display: none;
@@ -54,6 +63,36 @@
       color: var(--head);
     }
   }
+
+  .socialIcons {
+    display: flex;
+    flex-direction: row !important;
+    gap: 1rem;
+    align-items: center;
+
+    .socialIcon {
+      font-size: 1.5rem;
+      color: var(--head);
+      transition: 0.25s all;
+
+      &:hover {
+        color: var(--black);
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .copyrightSection {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      color: var(--para);
+      font-size: 0.9rem;
+    }
+  }
 }
 
 .footerContainer::before {
@@ -68,8 +107,11 @@
 @media (max-width: 1600px) {
   .footerContainer {
     padding: 3rem;
-    justify-content: space-around;
-    gap: 1rem;
+
+    .footerContent {
+      justify-content: space-around;
+      gap: 1rem;
+    }
 
     .footerLinksContainer {
       & > div {
@@ -89,21 +131,28 @@
 @media (max-width: 620px) {
   .footerContainer {
     padding: 3rem;
-    flex-direction: column;
-    align-items: center;
-    .desktopInfo{
+
+    .footerContent {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .desktopInfo {
       display: none;
     }
 
-    .mobileInfo{
+    .mobileInfo {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       width: 100%;
     }
+
     img {
       width: 10rem;
     }
+
     .footerLinksContainer {
       & > div {
         h2 {
@@ -125,6 +174,19 @@
       .icon {
         font-size: 1rem;
         color: var(--head);
+      }
+    }
+
+    .socialIcons {
+      .socialIcon {
+        font-size: 1.2rem;
+      }
+    }
+
+    .copyrightSection {
+
+      img {
+        width: 3rem;
       }
     }
   }

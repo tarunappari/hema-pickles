@@ -15,12 +15,14 @@
       position: absolute;
       right: 0;
       bottom: 0;
+      z-index: -1;
     }
 
     .decor1 {
       position: absolute;
       left: 0;
       top: 0;
+      z-index: -9;
     }
 
     .productTitle {
@@ -43,6 +45,7 @@
       padding: 1rem;
       gap: 2rem;
       place-items: center;
+      z-index: 99;
 
       .cardLink {
         text-decoration: none;
@@ -293,7 +296,6 @@
         .cardImgContainer {
           width: 12.5rem !important;
           height: 12.5rem !important;
-
         }
 
         h4 {
@@ -318,6 +320,12 @@
           font-size: 0.7rem;
           margin: 0 1rem 1rem;
           width: calc(100% - 2rem);
+        }
+      }
+
+      .decor2,.decor1 {
+        img{
+          width: 5rem;
         }
       }
     }

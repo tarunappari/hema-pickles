@@ -3,7 +3,7 @@ import React from 'react'
 import styles from '@/styles/common/Navbar.module.scss'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import logo from '@/public/assets/landingpage/hema-logo.png';
+import logo from '@/public/assets/logo.png';
 import Image from 'next/image';
 
 
@@ -13,7 +13,7 @@ const Navbar = () => {
     return (
         <div className={styles.container}>
             <div className={styles.title}>
-                <Link href='/'><Image src={logo} alt="logo" width={180} height={90} /></Link>
+                <Link href='/'><Image src={logo} alt="logo" width={255}height={150} /></Link>
             </div>
             <div className={pathname === "/about" ? styles.whiteLinks : ""}>
                 <Link href="/products" className={pathname === "/products" ? styles.active : ""}>Products</Link>
