@@ -198,7 +198,7 @@ export const allProducts = [
     caption: "✨ No Preservatives | ❌ No Artificial Colors | ✅ 100% Homemade",
     suggestion: "Hot rice with ghee 🍚, Gongura rice, Traditional Andhra meals",
     image: prawnsGongura,
-    price: "Rs600/500G(Inc - all taxes)",
+    price: "Rs850/500G(Inc - all taxes)",
   },
   // Veg Products
   {

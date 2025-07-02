@@ -75,6 +75,19 @@ body {
 .pageContainer{
   width: 99.65vw !important;
   overflow-x: hidden;
+  margin-top: 50px; /* Account for top slider */
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    margin-top: 45px; /* Adjust for smaller slider height */
+  }
+}
+
+@media (max-width: 480px) {
+  .pageContainer {
+    margin-top: 40px; /* Adjust for smallest slider height */
+  }
 }
 
 ::-webkit-scrollbar {

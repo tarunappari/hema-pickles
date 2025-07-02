@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+  top: 50px; /* Account for top slider */
 
   .title {
     a:hover::after {
@@ -84,22 +85,23 @@
 // Mobile Responsive Styles
 @media (max-width: 768px) {
   .container {
+    top: 45px; /* Adjust for smaller slider height */
 
-  .title {
+    .title {
+      img{
+        width: 13rem;
+      }
+    }
 
-    img{
-      width: 13rem;
+    a{
+      font-size: 1rem;
     }
   }
-
-  a{
-    font-size: 1rem;
-  }
-}
 }
 
-@media (max-width: 450px) {
+@media (max-width: 480px) {
   .container{
+    top: 40px; /* Adjust for smallest slider height */
     flex-direction: column;
   }
 }
