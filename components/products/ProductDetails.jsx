@@ -5,6 +5,7 @@ import Link from "next/link";
 import styles from "@/styles/products/ProductDetails.module.scss";
 import { allProducts } from "@/data/data";
 import FadeInWhenVisible from "../animations/FadeInWhenVisible";
+import AddToCartButton from "@/components/payment/AddToCartButton";
 
 const ProductDetails = ({ product }) => {
   // Get related products from the same category
@@ -68,6 +69,11 @@ const ProductDetails = ({ product }) => {
             </div>
 
             <div className={styles.actionButtons}>
+              <AddToCartButton
+                product={product}
+                variant="primary"
+                size="large"
+              />
               <button
                 className={styles.buyNowBtn}
                 onClick={() =>
@@ -77,7 +83,7 @@ const ProductDetails = ({ product }) => {
                   )
                 }
               >
-                Buy Now
+                Contact Us
               </button>
             </div>
           </div>

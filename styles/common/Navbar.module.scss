@@ -80,6 +80,11 @@
   .whiteLinks .active::after {
     background-color: white !important;
   }
+
+  .cartContainer {
+    display: flex;
+    align-items: center;
+  }
 }
 
 // Mobile Responsive Styles

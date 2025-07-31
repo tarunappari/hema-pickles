@@ -1,0 +1,128 @@
+.orderTracker {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+
+  h3 {
+    margin: 0 0 2rem 0;
+    color: #2d3748;
+    font-size: 1.25rem;
+  }
+}
+
+.trackingSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  padding-left: 3rem;
+
+  &.completed {
+    .stepIcon {
+      background: #48bb78;
+      color: white;
+    }
+
+    .stepLabel {
+      color: #2d3748;
+      font-weight: 600;
+    }
+
+    .stepTime {
+      color: #48bb78;
+    }
+  }
+}
+
+.stepIcon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #718096;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+  z-index: 2;
+
+  .completed & {
+    background: #48bb78;
+    color: white;
+    border-color: #48bb78;
+  }
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepLabel {
+  font-size: 1rem;
+  color: #718096;
+  margin-bottom: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.stepTime {
+  font-size: 0.875rem;
+  color: #a0aec0;
+  font-weight: 500;
+}
+
+.stepLine {
+  position: absolute;
+  left: 1.25rem;
+  top: 2.5rem;
+  width: 2px;
+  height: 1.5rem;
+  background: #e2e8f0;
+  transition: all 0.3s ease;
+
+  &.completed {
+    background: #48bb78;
+  }
+}
+
+@media (max-width: 768px) {
+  .orderTracker {
+    padding: 1.5rem;
+  }
+
+  .step {
+    padding-left: 2.5rem;
+  }
+
+  .stepIcon {
+    width: 2rem;
+    height: 2rem;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .stepLine {
+    left: 1rem;
+  }
+
+  .stepLabel {
+    font-size: 0.9rem;
+  }
+
+  .stepTime {
+    font-size: 0.8rem;
+  }
+}
