@@ -11,19 +11,19 @@ const TopSlider = () => {
       id: 1,
       icon: <FaShippingFast />,
       text: "International Shipping Available",
-      bgColor: ""
+      bgColor: "#ffffff"
     },
     {
       id: 2,
       icon: <FaPercent />,
       text: "20% Off on All Orders",
-      bgColor: ""
+      bgColor: "#ffffff"
     },
     {
       id: 3,
       icon: <FaHeart />,
       text: "India's Most Loved Pickles",
-      bgColor: ""
+      bgColor: "#ffffff"
     }
   ];
 
