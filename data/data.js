@@ -142,7 +142,7 @@ export const allProducts = [
     suggestion:
       "Hot steamed rice and ghee 🍚, Idli, dosa, or chapati 🫓, Curd rice or pongal",
     image: chicken,
-    price: "Rs1/500G(Inc - all taxes)",
+    price: "Rs600/500G(Inc - all taxes)",
   },
   {
     id: 2,

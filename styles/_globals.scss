@@ -7,16 +7,6 @@ body.sidebar-open {
   width: 100%;
 }
 
-/* Add padding to main content for fixed navbar */
-main {
-  padding-top: 80px; /* Adjust based on navbar height */
-}
-
-/* For pages that don't use main tag */
-.page-content {
-  padding-top: 80px;
-}
-
 // @import "tw-animate-css";
 
 // @custom-variant dark (&:is(.dark *));
@@ -92,19 +82,6 @@ body {
 .pageContainer{
   width: 99.65vw !important;
   overflow-x: hidden;
-  margin-top: 50px; /* Account for top slider */
-}
-
-@media (max-width: 768px) {
-  .pageContainer {
-    margin-top: 45px; /* Adjust for smaller slider height */
-  }
-}
-
-@media (max-width: 480px) {
-  .pageContainer {
-    margin-top: 40px; /* Adjust for smallest slider height */
-  }
 }
 
 ::-webkit-scrollbar {

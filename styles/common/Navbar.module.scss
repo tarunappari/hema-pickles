@@ -1,15 +1,13 @@
 .container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: absolute;
+
   z-index: 998;
   width: 100%;
-  background-color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.15rem 2rem;
+  padding-right: 7rem;
 
   .title {
     a:hover::after {
@@ -20,6 +18,13 @@
   & > div{
     display: flex;
     gap: 1rem;
+  }
+
+  .cartContainer{
+    position: fixed;
+    top: 3rem;
+    right: 0.5rem;
+    z-index: 9999;
   }
 
   svg {
@@ -91,7 +96,6 @@
 // Mobile Responsive Styles
 @media (max-width: 768px) {
   .container {
-    top: 45px; /* Adjust for smaller slider height */
 
     .title {
       img{
@@ -105,9 +109,20 @@
   }
 }
 
+@media (max-width: 600px) {
+  .container {
+
+    .cartContainer{
+      position: fixed;
+      right: 0;
+      top: 4rem;
+    }
+  }
+}
+
+
 @media (max-width: 480px) {
   .container{
-    top: 40px; /* Adjust for smallest slider height */
     flex-direction: column;
   }
 }

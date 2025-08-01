@@ -207,7 +207,7 @@
 @media (max-width: 950px) {
   .containerHero {
     grid-template-columns: 1fr;
-    grid-template-rows: 40% 6%;
+    grid-template-rows: 30% 70%;
     gap: 1rem;
 
     .infoContainer {
@@ -243,8 +243,10 @@
 
 @media (max-width: 540px) {
   .containerHero {
+    margin-top: 7rem;
+    gap: 0;
     .infoContainer {
-      margin-top: 0rem;
+      justify-content: center;
       & > div {
         h3 {
           display: block;
@@ -262,12 +264,6 @@
     height: 300px;
     mask-size: 40rem 15rem;
     -webkit-mask-size: 40rem 15rem;
-  }
-}
-
-@media (max-width: 450px) {
-  .containerHero {
-    margin-top: 2rem;
   }
 }
 
