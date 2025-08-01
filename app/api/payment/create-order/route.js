@@ -1,11 +1,20 @@
 import Razorpay from 'razorpay';
 import { NextResponse } from 'next/server';
 
-// Initialize Razorpay instance
-const razorpay = new Razorpay({
-  key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_KEY_SECRET,
-});
+// Function to create Razorpay instance only when needed
+function createRazorpayInstance() {
+  const keyId = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
+  const keySecret = process.env.RAZORPAY_KEY_SECRET;
+
+  if (!keyId || !keySecret) {
+    throw new Error('Razorpay environment variables are not configured');
+  }
+
+  return new Razorpay({
+    key_id: keyId,
+    key_secret: keySecret,
+  });
+}
 
 export async function POST(request) {
   try {
@@ -41,7 +50,8 @@ export async function POST(request) {
       notes: notes || {},
     };
 
-    // Create order with Razorpay
+    // Create Razorpay instance and order
+    const razorpay = createRazorpayInstance();
     const order = await razorpay.orders.create(options);
 
     return NextResponse.json({
@@ -57,11 +67,22 @@ export async function POST(request) {
     });
   } catch (error) {
     console.error('Error creating Razorpay order:', error);
-    
+
+    // Handle configuration errors
+    if (error.message.includes('environment variables')) {
+      return NextResponse.json(
+        {
+          error: 'Payment service configuration error',
+          details: 'Service temporarily unavailable'
+        },
+        { status: 503 }
+      );
+    }
+
     return NextResponse.json(
-      { 
+      {
         error: 'Failed to create order',
-        details: error.message 
+        details: error.message
       },
       { status: 500 }
     );
