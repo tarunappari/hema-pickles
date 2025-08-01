@@ -1,13 +1,15 @@
 .container {
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 998;
   width: 100%;
   background-color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.15rem 2rem;
-  top: 1rem; /* Account for top slider */
+  padding: 1rem 2rem;
 
   .title {
     a:hover::after {

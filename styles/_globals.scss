@@ -7,6 +7,16 @@ body.sidebar-open {
   width: 100%;
 }
 
+/* Add padding to main content for fixed navbar */
+main {
+  padding-top: 80px; /* Adjust based on navbar height */
+}
+
+/* For pages that don't use main tag */
+.page-content {
+  padding-top: 80px;
+}
+
 // @import "tw-animate-css";
 
 // @custom-variant dark (&:is(.dark *));
