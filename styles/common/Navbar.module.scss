@@ -1,14 +1,13 @@
 .container {
-  position: absolute;
-  background: transparent;
-  z-index: 999;
+  position: fixed;
+  z-index: 998;
   width: 100%;
-  background-color: transparent;
+  background-color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  top: 50px; /* Account for top slider */
+  padding: 0.15rem 2rem;
+  top: 1rem; /* Account for top slider */
 
   .title {
     a:hover::after {

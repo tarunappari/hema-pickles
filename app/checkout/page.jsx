@@ -1,14 +1,19 @@
 "use client";
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useCart } from '@/contexts/CartContext';
 import { usePayment } from '@/hooks/usePayment';
-import { X, CreditCard, User, Mail, Phone, MapPin } from 'lucide-react';
+import { X, CreditCard, User, Mail, Phone, MapPin, ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
-import styles from '@/styles/payment/CheckoutModal.module.scss';
-import { formatCurrency, formatItemPrice } from '@/lib/payment/razorpay';
-import PaymentSuccessModal from './PaymentSuccessModal';
+import Link from 'next/link';
+import styles from '@/styles/checkout/CheckoutPage.module.scss';
+import { formatCurrency, formatItemPrice, extractPrice } from '@/lib/payment/razorpay';
+import PaymentSuccessModal from '@/components/payment/PaymentSuccessModal';
+import Navbar from '@/components/common/Navbar';
+import Footer from '@/components/common/Footer';
 
-const CheckoutModal = ({ isOpen, onClose, onCartClose }) => {
+const CheckoutPage = () => {
+  const router = useRouter();
   const { items, getCartTotal } = useCart();
   const { initiatePayment, isProcessing, paymentError } = usePayment();
   
@@ -26,11 +31,16 @@ const CheckoutModal = ({ isOpen, onClose, onCartClose }) => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [paymentResult, setPaymentResult] = useState(null);
 
-  if (!isOpen) return null;
+  // Redirect if cart is empty
+  React.useEffect(() => {
+    if (items.length === 0) {
+      router.push('/products');
+    }
+  }, [items, router]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-
+    
     // Special handling for PIN code - only allow numbers
     if (name === 'pinCode') {
       const numericValue = value.replace(/\D/g, '').slice(0, 6);
@@ -40,12 +50,28 @@ const CheckoutModal = ({ isOpen, onClose, onCartClose }) => {
       }));
       return;
     }
-
+    
     setCustomerInfo(prev => ({
       ...prev,
       [name]: value
     }));
   };
+
+  const isEmailValid = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const isFormValid = customerInfo.name && 
+                      customerInfo.email && 
+                      isEmailValid(customerInfo.email) &&
+                      customerInfo.phone && 
+                      customerInfo.address && 
+                      customerInfo.city && 
+                      customerInfo.state && 
+                      customerInfo.pinCode && 
+                      customerInfo.pinCode.length === 6 &&
+                      customerInfo.country;
 
   const handlePayment = async (e) => {
     e.preventDefault();
@@ -55,8 +81,6 @@ const CheckoutModal = ({ isOpen, onClose, onCartClose }) => {
       (result) => {
         setPaymentResult(result);
         setShowSuccess(true);
-        onClose();
-        onCartClose();
       },
       (error) => {
         console.error('Payment failed:', error);
@@ -64,39 +88,29 @@ const CheckoutModal = ({ isOpen, onClose, onCartClose }) => {
     );
   };
 
-  const isEmailValid = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const isFormValid = customerInfo.name &&
-                      customerInfo.email &&
-                      isEmailValid(customerInfo.email) &&
-                      customerInfo.phone &&
-                      customerInfo.address &&
-                      customerInfo.city &&
-                      customerInfo.state &&
-                      customerInfo.pinCode &&
-                      customerInfo.pinCode.length === 6 &&
-                      customerInfo.country;
+  if (items.length === 0) {
+    return null; // Will redirect in useEffect
+  }
 
   return (
     <>
-      <div className={styles.overlay} onClick={onClose}>
-        <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+      <Navbar />
+      <div className={styles.checkoutPage}>
+        <div className={styles.container}>
           <div className={styles.header}>
-            <h2>
-              <CreditCard size={24} />
+            <Link href="/products" className={styles.backButton}>
+              <ArrowLeft size={20} />
+              Continue Shopping
+            </Link>
+            <h1>
+              <CreditCard size={28} />
               Checkout
-            </h2>
-            <button className={styles.closeButton} onClick={onClose}>
-              <X size={24} />
-            </button>
+            </h1>
           </div>
 
           <div className={styles.content}>
             <div className={styles.orderSummary}>
-              <h3>Order Summary</h3>
+              <h2>Order Summary</h2>
               <div className={styles.itemsList}>
                 {items.map((item) => (
                   <div key={item.id} className={styles.summaryItem}>
@@ -104,26 +118,40 @@ const CheckoutModal = ({ isOpen, onClose, onCartClose }) => {
                       <Image 
                         src={item.image} 
                         alt={item.name}
-                        width={50}
-                        height={50}
+                        width={60}
+                        height={60}
                         style={{ objectFit: 'cover' }}
                       />
                     </div>
                     <div className={styles.itemInfo}>
                       <span className={styles.itemName}>{item.name}</span>
                       <span className={styles.itemQuantity}>Qty: {item.quantity}</span>
+                      <span className={styles.itemPrice}>{formatItemPrice(item.price)}</span>
                     </div>
-                    <span className={styles.itemPrice}>{formatItemPrice(item.price)}</span>
+                    <div className={styles.itemTotal}>
+                      {formatCurrency(extractPrice(item.price) * item.quantity)}
+                    </div>
                   </div>
                 ))}
               </div>
-              <div className={styles.total}>
-                <strong>Total: {formatCurrency(getCartTotal())}</strong>
+              <div className={styles.orderTotal}>
+                <div className={styles.totalRow}>
+                  <span>Subtotal:</span>
+                  <span>{formatCurrency(getCartTotal())}</span>
+                </div>
+                <div className={styles.totalRow}>
+                  <span>Shipping:</span>
+                  <span>Free</span>
+                </div>
+                <div className={styles.totalRow + ' ' + styles.grandTotal}>
+                  <span>Total:</span>
+                  <span>{formatCurrency(getCartTotal())}</span>
+                </div>
               </div>
             </div>
 
             <form className={styles.customerForm} onSubmit={handlePayment}>
-              <h3>Customer Information</h3>
+              <h2>Customer Information</h2>
               
               <div className={styles.formGroup}>
                 <label htmlFor="name">
@@ -172,6 +200,8 @@ const CheckoutModal = ({ isOpen, onClose, onCartClose }) => {
                   placeholder="Enter your phone number"
                 />
               </div>
+
+              <h3>Delivery Address</h3>
 
               <div className={styles.formGroup}>
                 <label htmlFor="address">
@@ -266,14 +296,9 @@ const CheckoutModal = ({ isOpen, onClose, onCartClose }) => {
               )}
 
               <div className={styles.actions}>
-                <button 
-                  type="button"
-                  className={styles.cancelBtn}
-                  onClick={onClose}
-                  disabled={isProcessing}
-                >
-                  Cancel
-                </button>
+                <Link href="/products" className={styles.cancelBtn}>
+                  Continue Shopping
+                </Link>
                 <button 
                   type="submit"
                   className={styles.payBtn}
@@ -286,14 +311,18 @@ const CheckoutModal = ({ isOpen, onClose, onCartClose }) => {
           </div>
         </div>
       </div>
+      <Footer />
 
       <PaymentSuccessModal 
         isOpen={showSuccess}
-        onClose={() => setShowSuccess(false)}
+        onClose={() => {
+          setShowSuccess(false);
+          router.push('/products');
+        }}
         paymentResult={paymentResult}
       />
     </>
   );
 };
 
-export default CheckoutModal;
+export default CheckoutPage;

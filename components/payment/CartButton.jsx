@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useCart } from '@/contexts/CartContext';
 import { ShoppingCart, Plus, Minus, X } from 'lucide-react';
 import styles from '@/styles/payment/CartButton.module.scss';
-import CartModal from './CartModal';
+import CartSidebar from './CartSidebar';
 
 const CartButton = () => {
   const { items, getItemCount, addItem, removeItem, updateQuantity } = useCart();
@@ -24,7 +24,7 @@ const CartButton = () => {
         )}
       </button>
 
-      <CartModal 
+      <CartSidebar
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
       />
