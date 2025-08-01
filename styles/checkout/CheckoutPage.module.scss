@@ -1,8 +1,8 @@
 .checkoutPage {
-  padding-top: 5rem;
   min-height: 100vh;
   background: #f8fafc;
   padding: 2rem 0;
+  padding-top: 7rem;
 }
 
 .container {
@@ -299,6 +299,7 @@
 @media (max-width: 768px) {
   .checkoutPage {
     padding: 1rem 0;
+    padding-top: 7rem;
   }
 
   .header {
@@ -332,5 +333,11 @@
 
   .actions {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 518px) {
+  .checkoutPage {
+    padding-top: 8rem;
   }
 }

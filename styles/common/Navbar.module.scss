@@ -10,6 +10,7 @@
   align-items: center;
   padding: 0.15rem 2rem;
   padding-right: 7rem;
+  margin-top: 2.5rem;
 
   .title {
     a:hover::after {
@@ -98,7 +99,7 @@
 // Mobile Responsive Styles
 @media (max-width: 768px) {
   .container {
-
+    padding-top: 0.5rem;
     .title {
       img{
         width: 13rem;
@@ -113,17 +114,12 @@
 
 @media (max-width: 600px) {
   .container {
+    padding-top: 0.5rem;
+    flex-direction: column;
     .cartContainer{
       position: fixed;
       right: 0;
       top: 4rem;
     }
-  }
-}
-
-
-@media (max-width: 480px) {
-  .container{
-    flex-direction: column;
   }
 }
