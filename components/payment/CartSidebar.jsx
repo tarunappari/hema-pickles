@@ -12,19 +12,65 @@ const CartSidebar = ({ isOpen, onClose }) => {
   const router = useRouter();
   const { items, updateQuantity, removeItem, getCartTotal } = useCart();
 
-  // Prevent body scroll when sidebar is open
+  // Prevent body scroll when sidebar is open while preserving scroll position
   useEffect(() => {
     if (isOpen) {
-      document.body.classList.add('sidebar-open');
-      document.body.style.overflow = 'hidden';
+      // Small delay to ensure smooth transition
+      const timeoutId = setTimeout(() => {
+        // Store current scroll position
+        const scrollY = window.scrollY;
+        const scrollX = window.scrollX;
+
+        // Apply styles to prevent scrolling
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.left = `-${scrollX}px`;
+        document.body.style.width = '100%';
+        document.body.style.height = '100%';
+
+        // Store scroll position for restoration
+        document.body.setAttribute('data-scroll-y', scrollY.toString());
+        document.body.setAttribute('data-scroll-x', scrollX.toString());
+      }, 10);
+
+      return () => clearTimeout(timeoutId);
     } else {
-      document.body.classList.remove('sidebar-open');
-      document.body.style.overflow = '';
+      // Restore scroll position
+      const scrollY = parseInt(document.body.getAttribute('data-scroll-y') || '0');
+      const scrollX = parseInt(document.body.getAttribute('data-scroll-x') || '0');
+
+      // Remove styles
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.width = '';
+      document.body.style.height = '';
+
+      // Restore scroll position
+      window.scrollTo(scrollX, scrollY);
+
+      // Clean up attributes
+      document.body.removeAttribute('data-scroll-y');
+      document.body.removeAttribute('data-scroll-x');
     }
 
     return () => {
-      document.body.classList.remove('sidebar-open');
-      document.body.style.overflow = '';
+      // Cleanup function
+      const scrollY = parseInt(document.body.getAttribute('data-scroll-y') || '0');
+      const scrollX = parseInt(document.body.getAttribute('data-scroll-x') || '0');
+
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.width = '';
+      document.body.style.height = '';
+
+      if (scrollY || scrollX) {
+        window.scrollTo(scrollX, scrollY);
+      }
+
+      document.body.removeAttribute('data-scroll-y');
+      document.body.removeAttribute('data-scroll-x');
     };
   }, [isOpen]);
 

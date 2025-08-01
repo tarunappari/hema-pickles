@@ -1,21 +1,20 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import { useCart } from '@/contexts/CartContext';
-import { ShoppingCart, Plus, Minus, X } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 import styles from '@/styles/payment/CartButton.module.scss';
 import CartSidebar from './CartSidebar';
 
 const CartButton = () => {
-  const { items, getItemCount, addItem, removeItem, updateQuantity } = useCart();
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { items, getItemCount, isCartOpen, openCart, closeCart } = useCart();
 
   const itemCount = getItemCount();
 
   return (
     <>
-      <button 
+      <button
         className={styles.cartButton}
-        onClick={() => setIsCartOpen(true)}
+        onClick={openCart}
         aria-label={`Shopping cart with ${itemCount} items`}
       >
         <ShoppingCart size={24} />
@@ -26,7 +25,7 @@ const CartButton = () => {
 
       <CartSidebar
         isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
+        onClose={closeCart}
       />
     </>
   );

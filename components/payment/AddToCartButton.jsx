@@ -5,54 +5,51 @@ import { ShoppingCart, Check, Plus, Minus } from 'lucide-react';
 import styles from '@/styles/payment/AddToCartButton.module.scss';
 
 const AddToCartButton = ({ product, variant = 'primary', size = 'medium' }) => {
-  const { addItem, isInCart, getItemQuantity, updateQuantity, removeItem } = useCart();
+  const { addItem, isInCart, openCart } = useCart();
   const [isAdded, setIsAdded] = useState(false);
 
   const inCart = isInCart(product.id);
-  const quantity = getItemQuantity(product.id);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
     addItem(product);
     setIsAdded(true);
-    
+
+    // Open cart sidebar after adding item
+    setTimeout(() => {
+      openCart();
+    }, 500);
+
     // Reset the "added" state after 2 seconds
     setTimeout(() => {
       setIsAdded(false);
     }, 2000);
   };
 
-  const handleQuantityChange = (newQuantity) => {
-    if (newQuantity <= 0) {
-      removeItem(product.id);
-    } else {
-      updateQuantity(product.id, newQuantity);
-    }
+  const handleViewCart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    openCart();
   };
 
   if (inCart) {
     return (
-      <div className={`${styles.quantityContainer} ${styles[variant]} ${styles[size]}`}>
-        <button 
-          className={styles.quantityBtn}
-          onClick={() => handleQuantityChange(quantity - 1)}
-          aria-label="Decrease quantity"
-        >
-          <Minus size={16} />
-        </button>
-        <span className={styles.quantity}>{quantity}</span>
-        <button 
-          className={styles.quantityBtn}
-          onClick={() => handleQuantityChange(quantity + 1)}
-          aria-label="Increase quantity"
-        >
-          <Plus size={16} />
-        </button>
-      </div>
+      <button
+        type="button"
+        className={`${styles.viewCartBtn} ${styles[variant]} ${styles[size]}`}
+        onClick={handleViewCart}
+      >
+        <ShoppingCart size={18} />
+        View Cart
+      </button>
     );
   }
 
   return (
-    <button 
+    <button
+      type="button"
       className={`${styles.addToCartBtn} ${styles[variant]} ${styles[size]} ${isAdded ? styles.added : ''}`}
       onClick={handleAddToCart}
       disabled={isAdded}

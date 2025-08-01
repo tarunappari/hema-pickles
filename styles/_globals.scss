@@ -1,11 +1,6 @@
 @use "tailwindcss";
 
-/* Prevent body scroll when sidebar is open */
-body.sidebar-open {
-  overflow: hidden !important;
-  position: fixed;
-  width: 100%;
-}
+/* Scroll lock is now handled in JavaScript for better position preservation */
 
 // @import "tw-animate-css";
 
@@ -79,7 +74,7 @@ body {
   font-optical-sizing: auto;
 }
 
-.pageContainer{
+.pageContainer {
   width: 99.65vw !important;
   overflow-x: hidden;
 }
@@ -176,7 +171,7 @@ svg:hover {
 
 .textGradient {
   font-weight: bold;
-  background: linear-gradient(to right, black, #ec333a,#ec333a);
+  background: linear-gradient(to right, black, #ec333a, #ec333a);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -218,6 +213,27 @@ svg:hover {
   cursor: pointer;
   z-index: 9;
   border-radius: 0.2rem;
+}
+
+.viewCartBtn {
+  background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  padding: 0.5rem 1rem;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(229, 62, 62, 0.3);
+  }
 }
 
 .imgContainer {

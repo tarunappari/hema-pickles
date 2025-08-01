@@ -16,6 +16,7 @@ const ProductsContainer = () => {
   const nonVegProducts = allProducts.filter(product => product.category === 'nonveg');
   const vegProducts = allProducts.filter(product => product.category === 'veg');
   const powderProducts = allProducts.filter(product => product.category === 'powder');
+  
 
   return (
     <div className={styles.productsContainer}>
