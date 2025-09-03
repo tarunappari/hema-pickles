@@ -229,7 +229,7 @@ export const allProducts = [
   {
     id: 12,
     name: "Pure Cow Ghee",
-    category: "ghee",
+    category: "powder",
     tagline: "Golden richness, pure and traditional taste!",
     description:
       "Made from fresh cow’s milk using the traditional method, our Pure Ghee is rich in aroma, flavor, and essential nutrients. Perfect for cooking, puja rituals, or adding a spoonful of health to your meals.",
