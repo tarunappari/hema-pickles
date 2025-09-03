@@ -89,7 +89,7 @@ const Footer = () => {
             {/* Copyright Section */}
             <div className={styles.copyrightSection}>
                 <p>&copy; 2025 All rights reserved</p>
-                <Image src={amigos}alt='logo'width={50} />
+                {/* <Image src={amigos}alt='logo'width={50} /> */}
             </div>
         </div >
     )
