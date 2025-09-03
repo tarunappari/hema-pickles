@@ -1,3 +1,4 @@
+"use client";
 import Image from 'next/image';
 import React from 'react'
 import non from '@/public/assets/category/nonVeg.png'
@@ -5,10 +6,11 @@ import veg from '@/public/assets/category/veg.png'
 import plus from '@/public/assets/decors/plusDown.png'
 import plus2 from '@/public/assets/decors/plus.png'
 import styles from '@/styles/landingpage/Category.module.scss'
-import { favProducts } from '@/data/data';
+import { allProducts } from '@/data/data';
 import spiral from '@/public/assets/decors/spiral.png'
 import FadeInWhenVisible from '../animations/FadeInWhenVisible';
 import Link from 'next/link';
+import ProductCard from '../common/ProductCard';
 
 const Category = () => {
   return (
@@ -47,25 +49,18 @@ const Category = () => {
           <p>Savor Your Favorite, One Spoon at a Time!</p>
         </div>
         <div className={styles.favCards}>
-          {favProducts.map((item, index) => (
-            <FadeInWhenVisible direction='bottom' delay={index * 0.25} effect='spring' key={index}>
-              <Link href={`/products`}>
-                <div
-
-                  className={`${styles.favCard} ${(index === 0) ? styles.favCard1 : ''
-                    }`}
-                >
-                  <div className={styles.favImgContainer}>
-                    <Image src={item.image} alt={item.name} />
-                  </div>
-                  <h4>{item.name}</h4>
-                  {(index === 0) && (
-                    <div className={styles.decorSpiral}>
-                      <Image src={spiral} alt='spiral' />
-                    </div>
-                  )}
-                </div>
-              </Link>
+          {allProducts
+            .filter(product => product.fav === true)
+            .map((item, index) => (
+            <FadeInWhenVisible direction='bottom' delay={index * 0.25} effect='spring' key={item.id}>
+              <ProductCard
+                item={item}
+                index={index}
+                styles={styles}
+                spiral={spiral}
+                showSpiral={true}
+                variant="category"
+              />
             </FadeInWhenVisible>
           ))}
         </div>

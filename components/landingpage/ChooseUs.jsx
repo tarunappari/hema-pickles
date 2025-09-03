@@ -19,15 +19,16 @@ const ChooseUs = () => {
           const delay = Math.floor(index / 2) * 0.5;
 
           return (
-            <FadeInWhenVisible key={index} direction={direction} delay={delay}>
-              <div className={styles.card}>
+            <div className={styles.card} key={index}>
                 <div className={styles.icon}>
                   <Lottie loop={true} animationData={item.icon} autoplay={true} />
                 </div>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
               </div>
-            </FadeInWhenVisible>
+            // <FadeInWhenVisible key={index} direction={direction} delay={delay}>
+              
+            // </FadeInWhenVisible>
           );
         })}
       </div>

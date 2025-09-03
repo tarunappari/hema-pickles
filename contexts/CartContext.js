@@ -154,7 +154,16 @@ export const CartProvider = ({ children }) => {
 
   const getCartTotal = () => {
     return state.items.reduce((total, item) => {
-      const price = extractPrice(item.price);
+      // Use selectedPrice if available (for new price selector items)
+      // Otherwise fall back to extractPrice for legacy items
+      let price;
+      if (item.selectedPrice && typeof item.selectedPrice === 'number') {
+        price = item.selectedPrice;
+      } else if (item.selectedPrice && typeof item.selectedPrice === 'string') {
+        price = parseFloat(item.selectedPrice);
+      } else {
+        price = extractPrice(item.price);
+      }
       return total + (price * item.quantity);
     }, 0);
   };

@@ -125,11 +125,21 @@ const CheckoutPage = () => {
                     </div>
                     <div className={styles.itemInfo}>
                       <span className={styles.itemName}>{item.name}</span>
+                      {item.selectedSize && (
+                        <span className={styles.itemSize}>Size: {item.selectedSize}</span>
+                      )}
                       <span className={styles.itemQuantity}>Qty: {item.quantity}</span>
-                      <span className={styles.itemPrice}>{formatItemPrice(item.price)}</span>
+                      <span className={styles.itemPrice}>
+                        {item.formattedPrice || formatItemPrice(item.price)} each
+                      </span>
                     </div>
                     <div className={styles.itemTotal}>
-                      {formatCurrency(extractPrice(item.price) * item.quantity)}
+                      {formatCurrency(
+                        (item.selectedPrice ?
+                          (typeof item.selectedPrice === 'number' ? item.selectedPrice : parseFloat(item.selectedPrice)) :
+                          extractPrice(item.price)
+                        ) * item.quantity
+                      )}
                     </div>
                   </div>
                 ))}

@@ -103,6 +103,13 @@
     font-size: 0.95rem;
   }
 
+  .itemSize {
+    color: #4a5568;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+
   .itemQuantity {
     color: #718096;
     font-size: 0.85rem;
@@ -320,6 +327,10 @@
   .orderSummary {
     position: static;
     order: 2;
+  }
+
+  .itemSize {
+    font-size: 0.75rem;
   }
 
   .customerForm {

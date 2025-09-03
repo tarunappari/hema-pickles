@@ -1,0 +1,184 @@
+.priceSelector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.sizeButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.sizeButton {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.25rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.375rem;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.75rem;
+  min-height: 3rem;
+
+  &:hover {
+    border-color: #cbd5e0;
+    background: #f7fafc;
+  }
+
+  &.selected {
+    border-color: #e53e3e;
+    background: #fed7d7;
+    color: #c53030;
+    font-weight: 600;
+  }
+
+  .size {
+    font-weight: 600;
+    font-size: 0.7rem;
+    margin-bottom: 0.125rem;
+    text-transform: uppercase;
+  }
+
+  .price {
+    font-size: 0.65rem;
+    color: #4a5568;
+  }
+
+  &.selected .price {
+    color: #c53030;
+    font-weight: 600;
+  }
+}
+
+.selectedPrice {
+  text-align: center;
+  padding: 0.25rem 0;
+
+  .currentPrice {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #e53e3e;
+  }
+}
+
+// Variant for category page (smaller)
+.priceSelector.category {
+  .sizeButton {
+    padding: 0.375rem 0.25rem;
+    min-height: 2.5rem;
+    font-size: 0.7rem;
+
+    .size {
+      font-size: 0.65rem;
+    }
+
+    .price {
+      font-size: 0.6rem;
+    }
+  }
+
+  .selectedPrice {
+    .currentPrice {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+// Variant for products page (larger)
+.priceSelector.products {
+  .sizeButton {
+    padding: 0.75rem 0.5rem;
+    min-height: 3.5rem;
+    font-size: 0.8rem;
+
+    .size {
+      font-size: 0.75rem;
+    }
+
+    .price {
+      font-size: 0.7rem;
+    }
+  }
+
+  .selectedPrice {
+    .currentPrice {
+      font-size: 1rem;
+    }
+  }
+}
+
+// Mobile responsive
+@media (max-width: 768px) {
+  .sizeButton {
+    padding: 0.375rem 0.25rem;
+    min-height: 2.25rem;
+    font-size: 0.65rem;
+
+    .size {
+      font-size: 0.6rem;
+    }
+
+    .price {
+      font-size: 0.55rem;
+    }
+  }
+
+  .selectedPrice {
+    .currentPrice {
+      font-size: 0.75rem;
+    }
+  }
+
+  .priceSelector.products {
+    .sizeButton {
+      min-height: 2.75rem;
+    }
+
+    .selectedPrice {
+      .currentPrice {
+        font-size: 0.85rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .sizeButtons {
+    gap: 0.125rem;
+    flex-direction: column;
+  }
+
+  .sizeButton {
+    padding: 0.1rem 0.125rem ;
+    max-height: 0.1rem;
+    font-size: 0.6rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    overflow: hidden;
+
+    .size {
+      font-size: 0.55rem;
+    }
+
+    .price {
+      font-size: 0.5rem;
+    }
+  }
+
+  .selectedPrice {
+    display: none;
+    .currentPrice {
+      font-size: 0.7rem;
+    }
+  }
+}

@@ -97,6 +97,18 @@
 
 .priceSection {
   margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+
+  .priceSectionTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
 }
 
 .price {
@@ -257,6 +269,12 @@
   }
 }
 
+.relatedProductPrice {
+  font-size: 0.9rem;
+  color: #e53e3e;
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .productDetailsContainer {
     padding: 1rem;
@@ -293,7 +311,7 @@
   }
 
   .productInfoSection {
-    padding:1rem;
+    padding: 1rem;
   }
 
   .productName {
@@ -308,6 +326,12 @@
 
   .priceSection {
     margin-bottom: 1rem;
+    padding: 1rem;
+
+    .priceSectionTitle {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
   }
 
   .price {
@@ -337,10 +361,16 @@
   }
 
   .actionButtons {
-
     button {
       padding: 0.75rem 2rem;
       font-size: 1rem;
     }
+  }
+}
+
+@media (max-width: 452px) {
+  .priceSection {
+    margin-bottom: 2rem;
+    padding: 1.5rem 3rem;
   }
 }

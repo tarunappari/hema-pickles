@@ -84,6 +84,12 @@
         margin-bottom: 1rem;
       }
 
+      .priceSection {
+        padding: 0 1rem; 
+        width: 90%;
+        margin: 1rem auto;
+      }
+
       .cardActions {
         display: flex;
         flex-direction: column;
@@ -124,6 +130,7 @@
         height: 20rem;
         border-radius: 1rem;
         overflow: hidden;
+        margin: 0 auto;
 
         img {
           width: 100%;
@@ -161,7 +168,7 @@
       position: absolute;
       bottom: 0;
       right: 0;
-      z-index: 999;
+      z-index: 599;
     }
   }
 

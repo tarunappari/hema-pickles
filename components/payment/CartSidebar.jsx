@@ -128,9 +128,19 @@ const CartSidebar = ({ isOpen, onClose }) => {
                       
                       <div className={styles.itemDetails}>
                         <h4>{item.name}</h4>
-                        <p className={styles.itemPrice}>{formatItemPrice(item.price)} each</p>
+                        {item.selectedSize && (
+                          <p className={styles.itemSize}>Size: {item.selectedSize}</p>
+                        )}
+                        <p className={styles.itemPrice}>
+                          {item.formattedPrice || formatItemPrice(item.price)} each
+                        </p>
                         <p className={styles.itemSubtotal}>
-                          Subtotal: {formatCurrency(extractPrice(item.price) * item.quantity)}
+                          Subtotal: {formatCurrency(
+                            (item.selectedPrice ?
+                              (typeof item.selectedPrice === 'number' ? item.selectedPrice : parseFloat(item.selectedPrice)) :
+                              extractPrice(item.price)
+                            ) * item.quantity
+                          )}
                         </p>
                       </div>
 

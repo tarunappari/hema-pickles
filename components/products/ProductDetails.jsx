@@ -1,19 +1,26 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/products/ProductDetails.module.scss";
 import { allProducts } from "@/data/data";
 import FadeInWhenVisible from "../animations/FadeInWhenVisible";
 import AddToCartButton from "@/components/payment/AddToCartButton";
+import PriceSelector from "../common/PriceSelector";
 
 const ProductDetails = ({ product }) => {
+  const [selectedPrice, setSelectedPrice] = useState(null);
+
   // Get related products from the same category
   const relatedProducts = allProducts
     .filter(
       (item) => item.category === product.category && item.id !== product.id
     )
     .slice(0, 3);
+
+  const handlePriceChange = (priceInfo) => {
+    setSelectedPrice(priceInfo);
+  };
 
   const ingredientsList = product.ingredients
     .split(",")
@@ -56,10 +63,6 @@ const ProductDetails = ({ product }) => {
             <h1 className={styles.productName}>{product.name}</h1>
             <p className={styles.productTagline}>{product.tagline}</p>
 
-            <div className={styles.priceSection}>
-              <span className={styles.price}>{product.price}</span>
-            </div>
-
             <div className={styles.description}>
               <p>{product.description}</p>
             </div>
@@ -68,9 +71,20 @@ const ProductDetails = ({ product }) => {
               <p>{product.caption}</p>
             </div>
 
+            <div className={styles.priceSection}>
+              <h3 className={styles.priceSectionTitle}>Select Size & Price</h3>
+              <PriceSelector
+                prices={product.price}
+                onPriceChange={handlePriceChange}
+                defaultSize="1kg"
+                variant="products"
+              />
+            </div>
+
             <div className={styles.actionButtons}>
               <AddToCartButton
                 product={product}
+                selectedPrice={selectedPrice}
                 variant="primary"
                 size="large"
               />
@@ -133,7 +147,19 @@ const ProductDetails = ({ product }) => {
                   />
                 </div>
                 <h4>{relatedProduct.name}</h4>
-                <p>{relatedProduct.price}</p>
+                <p className={styles.relatedProductPrice}>
+                  {relatedProduct.price["1kg"]
+                    ? `₹${relatedProduct.price["1kg"]}/1kg`
+                    : relatedProduct.price["500g"]
+                    ? `₹${relatedProduct.price["500g"]}/500g`
+                    : Object.keys(relatedProduct.price)[0]
+                    ? `₹${
+                        relatedProduct.price[
+                          Object.keys(relatedProduct.price)[0]
+                        ]
+                      }/${Object.keys(relatedProduct.price)[0]}`
+                    : "Price not available"}
+                </p>
               </Link>
             ))}
           </div>

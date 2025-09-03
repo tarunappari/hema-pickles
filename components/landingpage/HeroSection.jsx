@@ -7,6 +7,7 @@ import Image from "next/image";
 import granny1 from "@/public/assets/landingpage/granny.png";
 import family from "@/public/assets/landingpage/family.png";
 import bg from "@/public/assets/landingpage/bg3.png";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -28,23 +29,14 @@ const HeroSection = () => {
           <p>Taste the Tradition in Every Bite</p>
         </FadeInWhenVisible>
         <FadeInWhenVisible direction="top" delay={1} effect="bounce">
-          <div className={styles.orderBtn}>
-            <button
-              className={styles.button}
-              onClick={() =>
-                window.open(
-                  "https://wa.me/916303191921?text=Hi%2C%20I%20need%20more%20information%20about%20your%20pickles!",
-                  "_blank"
-                )
-              }
-            >
-              {" "}
-              Order Now
-            </button>
-            <span className={styles.span}>
-              <Cart />
-            </span>
-          </div>
+          <Link href={'/products'}>
+            <div className={styles.orderBtn}>
+              <button className={styles.button}> Order Now</button>
+              <span className={styles.span}>
+                <Cart />
+              </span>
+            </div>
+          </Link>
         </FadeInWhenVisible>
       </div>
       <FadeInWhenVisible direction="top" delay={1} effect="bounce">
