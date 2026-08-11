@@ -16,7 +16,7 @@ const FadeInWhenVisible = ({ children, direction = "right", delay = 0, effect = 
     },
   };
 
-  // 🎨 Multiple Animation Effects
+
   const transitions = {
     easeOut: { duration: 0.6, ease: "easeOut", delay },
     easeInOut: { duration: 0.8, ease: "easeInOut", delay },
