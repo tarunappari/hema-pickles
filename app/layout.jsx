@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/_globals.scss";
 import SmoothScroll from "@/components/animations/SmoothScroll";
 import TopSlider from "@/components/common/TopSlider";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
 import { CartProvider } from "@/contexts/CartContext";
 import Script from "next/script";
 
@@ -28,14 +29,18 @@ export default function RootLayout({ children }) {
           src="https://www.googletagmanager.com/gtag/js?id=G-8MERP52H1H"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {\`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-8MERP52H1H');
-          \`}
-        </Script>
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-8MERP52H1H');
+            `,
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -44,6 +49,7 @@ export default function RootLayout({ children }) {
           <TopSlider />
           <SmoothScroll />
           {children}
+          <WhatsAppButton />
         </CartProvider>
       </body>
     </html>
